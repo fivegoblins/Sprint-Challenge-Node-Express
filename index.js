@@ -202,8 +202,8 @@ server.put('/api/projects/:id', (req, res)=> {
 });
 
 server.get('/api/projects/actions/:project_id', (req, res)=> {
-    console.log(req.params);
-    const {project_id} = req.params;
+    console.log(req.params.project_id);
+    const {project_id} = req.params.project_id;
     projects.getProjectActions(project_id)
         .then(actionsForProject=> {
             if (!actionsForProject) {
