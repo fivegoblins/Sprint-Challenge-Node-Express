@@ -206,7 +206,7 @@ server.get('/api/projects/actions/:project_id', (req, res)=> {
     const {project_id} = req.params;
     projects.getProjectActions(project_id)
         .then(actionsForProject=> {
-            if (actionsForProject === 0) {
+            if (!actionsForProject) {
                 res.status(404).json({error: "There are no actions for this project"});
             }
             res.status(200).json({actionsforProject});
